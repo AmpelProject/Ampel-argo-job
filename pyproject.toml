@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "ampel-argo-job"
+version = "0.9.0"
+description = "Ampel jobs with Argo workflows"
+authors = ["Jakob van Santen <jakob.van.santen@desy.de>"]
+maintainers = ["Jakob van Santen <jakob.van.santen@desy.de>"]
+license = "BSD-3-Clause"
+readme = "README.md"
+homepage = "https://ampelproject.github.io"
+repository = "https://github.com/AmpelProject/Ampel-core"
+documentation = "https://ampelproject.github.io/Ampel-core"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Typing :: Typed",
+]
+packages = [{include = "ampel"}]
+include = [
+    'conf/*/*.json',
+    'conf/*/*/*.json',
+    'conf/*/*.yaml',
+    'conf/*/*/*.yaml',
+    'conf/*/*.yml',
+    'conf/*/*/*.yml',
+]
+
+[tool.poetry.plugins.cli]
+'ajob_Run_argo_schema_file(s)' = 'ampel.cli.ArgoJobCommand'
+
+[tool.poetry.dependencies]
+ampel-core = {version = "^0.9.0"}
+python = ">=3.10,<3.12"
